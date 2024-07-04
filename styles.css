@@ -4,8 +4,8 @@ html {
 
 body {
     height: 100%;
-    padding: 0;
     margin: 0;
+    padding-top: 20px;
     font-family: Arial, sans-serif;
     background-color: #212121;
     color: aliceblue;
@@ -37,7 +37,7 @@ nav ul li a {
 }
 
 section {
-    padding: 20px;
+    padding: 0px 50px;
     margin: 20px 0;
     flex: 1;
 }
@@ -52,11 +52,12 @@ section {
 }
 
 .images img {
-    max-width: 30%;
+    max-width: 40%;
 }
 
-.videos video {
-    max-width: 30%;
+iframe {
+    width: 40vw;
+    height: 22.5vw;
 }
 
 a:visited {
@@ -78,6 +79,7 @@ a:hover {
     flex-direction: column;
     align-items: center;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .creator-img {
@@ -88,7 +90,6 @@ a:hover {
 }
 
 footer {
-    padding: 0;
     text-align: center;
     width: 100%;
     background-color: #313131;
