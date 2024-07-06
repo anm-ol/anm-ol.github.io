@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sim3D Engine - Devlog</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="scripts/renderMarkdown.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Sim3D Engine</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="history.html">History</a></li>
+          <li><a href="setup.html">Setting up</a></li>
+          <li><a href="devlog.html">Devlog</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section id="devlog">
+      <h2>Devlog</h2>
+      <div id="markdown-content"></div>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 Sim3D Project. All rights reserved.</p>
+    </footer>
+
+    <script>
+      // Path to your Markdown file
+      const markdownPath = 'devlog/sim3d-phase1-devlog.md'; // Replace with the actual path to your Markdown file
+
+      // Call the renderMarkdown function
+      renderMarkdown(markdownPath, 'markdown-content');
+    </script>
+  </body>
+</html>

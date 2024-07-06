@@ -1,42 +1,543 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sim3D Engine - Devlog</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="scripts/renderMarkdown.js"></script>
-  </head>
-  <body>
-    <header>
-      <h1>Sim3D Engine</h1>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="history.html">History</a></li>
-          <li><a href="setup.html">Setting up</a></li>
-          <li><a href="devlog.html">Devlog</a></li>
-          <li><a href="about.html">About</a></li>
-        </ul>
-      </nav>
-    </header>
+<html>
+<head>
+<title>sim3d-phase1-devlog.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 
-    <section id="devlog">
-      <h2>Devlog</h2>
-      <div id="markdown-content"></div>
-    </section>
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
 
-    <footer>
-      <p>&copy; 2024 Sim3D Project. All rights reserved.</p>
-    </footer>
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
 
-    <script>
-      // Path to your Markdown file
-      const markdownPath = 'devlog/sim3d-phase1-devlog.md'; // Replace with the actual path to your Markdown file
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
 
-      // Call the renderMarkdown function
-      renderMarkdown(markdownPath, 'markdown-content');
-    </script>
-  </body>
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="sim3d-phase-1-devlog">Sim3D: Phase 1 Devlog</h1>
+<h2 id="introduction">Introduction</h2>
+<p>Welcome to the development log for Phase 1 of <a href="https://github.com/anm-ol/sim3d">Sim3D</a>, a 3D particle simulation engine built from scratch using C++ and OpenGL. This devlog chronicles the journey from initial setup to a functioning particle system with basic physics and rendering capabilities.</p>
+<h2 id="project-overview">Project Overview</h2>
+<p>Sim3D is designed to simulate particles in a 3D environment, allowing for particle collision, movement, and interactive visualization. The project aims to create a robust foundation for more complex simulations in later phases.</p>
+<h2 id="phase-1-objectives">Phase 1 Objectives</h2>
+<ol>
+<li>Setting up environment</li>
+<li>Implement basic rendering capabilities</li>
+<li>Create a physics engine for particle simulation</li>
+<li>Develop collision detection and response systems</li>
+<li>Integrate rendering with the physics simulation</li>
+</ol>
+<h2 id="development-process">Development Process</h2>
+<h3 id="step-1-setting-up-the-environment">Step 1: Setting up the environment</h3>
+<p>As this was my first ever time learning c++, I had to configure Visual Studio for OpenGl, as well as setting up the libraries that would neccessary</p>
+<ul>
+<li>GLFW was important for window creation without being OS specific, the other option was to use the Win32 API (scary stuff!)</li>
+<li>GLAD was imporant for loading OpenGL functions on any device</li>
+<li>GLM for matrix/vector operations</li>
+</ul>
+<p>Deciding the application design was also important, since a well-planned design keeps everything organize, makes debugging a little less hellish and impementing new features along the way easier.</p>
+<p><img src="devlog/image.png" alt="SystemDesign"></p>
+<p>I learned how to write classes and headers in c++, later assigning everyone to work on different components.</p>
+<h3 id="step-2-physics-engine-implementation">Step 2: Physics Engine Implementation</h3>
+<p>The next phase focused on creating the core physics engine, including:</p>
+<ul>
+<li>There would be particle class, the engine contains the dynamic array of the particles.</li>
+<li>Collision detection, the most computationally expensive part, initially involved checking collisions between each particle pair—resulting in a whopping 600,000 checks per second for simulating 100 particles at 60fps.</li>
+<li>We resolve if there is a collision, keeping momentum constant.</li>
+</ul>
+<p>Key challenges:</p>
+<ul>
+<li>Removing all reduntant computation from collision to make it efficient. Example: we avoid calculating the square root in distance calculation</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">isCollision</span><span class="hljs-params">(particle&amp; p1, particle&amp; p2)</span>
+</span>{
+	<span class="hljs-keyword">if</span>(&amp;p1 == &amp;p2)
+		<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+	<span class="hljs-keyword">return</span> dot(p1.pos - p2.pos, p1.pos - p2.pos) &lt;= ((p1.size + p2.size) * (p1.size + p2.size));
+</div></code></pre>
+<ul>
+<li>Fixing linker errors due to circular linking, this helped me learn how c++ works.</li>
+</ul>
+<p>Code snippet (Engine update function):</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Engine::updateall</span><span class="hljs-params">()</span> <span class="hljs-comment">//this is the main function that gets called in infinite loop</span>
+</span>{
+	particles.push_back(particle(glm::vec3(<span class="hljs-number">1</span>), <span class="hljs-number">1.0f</span>));
+	<span class="hljs-comment">//call particle.update() for every element in array</span>
+	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; particles.size(); i++){
+		particles[i].update(tconst);
+		particles[i].velocity += globalAcc;
+	}
+	<span class="hljs-comment">//call collision handling functions after updation</span>
+    checkCollision(particles);
+}
+</div></code></pre>
+<h3 id="step-3-sphere-mesh-generation">Step 3: Sphere Mesh Generation</h3>
+<p>Apparently you can't really render curves in OpenGL, everything needs to defined with vertices.
+To render particles as spheres, we implemented a sphere mesh generation algorithm:</p>
+<p><img src="devlog/SphereMesh.png" alt="spheremesh"></p>
+<ul>
+<li>Generating sphere vertices and indices as triangles</li>
+<li>Calculating normal data for proper lighting</li>
+<li>Adding the generated mesh to Vertex buffers (<a href="https://yaakuro.gitbook.io/opengl-4-5/chapter1">how buffers work in openGL</a>)</li>
+<li>Basic shaders to calculate diffuse lighting from a fixed point</li>
+</ul>
+<p>Key challenges:</p>
+<ul>
+<li>Getting the buffers and normals to render
+<img src="devlog/failedsphere.png" alt="Some failed attempts">
+<img src="devlog/fail.png" alt="alt text">
+<a href="devlog/fail.mp4">Some failed attempts</a></li>
+</ul>
+<p>Finally working!
+<img src="devlog/sphere.png" alt="1"></p>
+<h3 id="step-4-integrating-rendering-and-physics">Step 4: Integrating Rendering and Physics</h3>
+<p>This step involved combining the rendering system with the physics engine:</p>
+<ul>
+<li>Applying MVP (Model-View-Projection) matrices to particle positions</li>
+<li>Rendering a copy of the sphere mesh according to the transform matrix</li>
+<li>ImplemSenting a camera system for scene navigation</li>
+</ul>
+<p><img src="devlog/workingengine.png" alt="alt"></p>
+<p><img src="devlog/demoimg.jpg" alt="alt text"></p>
+<a href="devlog/demo1.mp4">Click here to see some bouncing balls</a></li>
+<h3 id="step-5-refinement-and-bug-fixes">Step 5: Refinement and Bug Fixes</h3>
+<p>The final step of Phase 1 involved iterative refinement:</p>
+<ul>
+<li>Fixing collision issues, like particles leaking through walls.</li>
+<li>Weird behavious like particles sticking togethere.</li>
+<li>Adding simple controls like pause button.</li>
+<li>Enhancing visual quality with improved lighting and shading</li>
+</ul>
+<p>Key improvements:</p>
+<ul>
+<li>Iteratively fixed collision bugs.</li>
+<li>Used Substeps - A technique used to break down a single frame into multiple time steps, to improve simulation stability/accuracy, at the cost of performance.</li>
+<li>Running around 10 substeps each frame, solved most of the collision issues.</li>
+</ul>
+<h2 id="challenges-and-solutions">Challenges and Solutions</h2>
+<p>Throughout Phase 1, several challenges were encountered and overcome:</p>
+<ol>
+<li>
+<p>Shader compilation issues</p>
+<ul>
+<li>Problem: Vertex and fragment shader linking error</li>
+<li>Solution: Added utility functions inside shader class for logging and exception handling</li>
+</ul>
+</li>
+<li>
+<p>collision logic</p>
+<ul>
+<li>Problem: Very unstable, particles teleporting through walls</li>
+<li>Solution: Used sub-steps between each frame for stability</li>
+</ul>
+</li>
+</ol>
+<h2 id="performance-considerations">Performance Considerations</h2>
+<p>[Discuss any performance optimizations or considerations you made during Phase 1]</p>
+<h2 id="lessons-learned">Lessons Learned</h2>
+<ul>
+<li>Gained crucial experience with C++ and its standard libraries.</li>
+<li>Learned how rendering engine design works, implemented various OOP concepts through abstractions</li>
+<li>Managed a codebase through git, resolving conflicts, managing branches, commits and issues.</li>
+</ul>
+<h2 id="future-improvements">Future Improvements</h2>
+<p>This was just the Phase-1 of our journey, in the upcoming Devlog, I'll be showcasing these features and improvements</p>
+<ol>
+<li>Implement more advanced collision resolution techniques</li>
+<li>Exploring how memory works under the hood, and pushing the engine to its limits!</li>
+<li>Adding more realistic lighting</li>
+<li>Exploring how Immediate mode GUI, and adding a much needed Editor to our engine.</li>
+</ol>
+<h2 id="conclusion">Conclusion</h2>
+<p>Phase 1 of Sim3D has laid a solid foundation for our 3D particle simulation engine. We've successfully implemented basic rendering, a functional physics engine, and particle interactions</p>
+<p>Make sure to checkout the <a href="https://github.com/anm-ol/sim3d">github repo</a> if you want to follow us as we add new features or if you want to try it out yourself.</p>
+<h2 id="appendix">Appendix</h2>
+<h3 id="project-structure">Project Structure</h3>
+<pre class="hljs"><code><div>sim3d/
+├── shader/
+├── src/
+│   ├── include/
+│   ├── lib/
+│   ├── Engine.cpp
+│   ├── Engine.h
+│   ├── camera.h
+│   ├── collision.cpp
+│   ├── collision.h
+│   ├── glad.c
+│   ├── gui.cpp
+│   ├── main.cpp
+│   ├── particle.cpp
+│   ├── particle.h
+│   ├── renderer.cpp
+│   ├── renderer.h
+│   └── shader.h
+</div></code></pre>
+<h2 id="heres-some-etra-info-for-you-to-read-about">Here's some etra info for you to read about</h2>
+<p>I reccomend going through <a href="www.learnopengl.com">learnopengl.com</a>
+and <a href="https://youtube.com/playlist?list=PLlrATfBNZ98foTJPJ_Ev03o2oq3-GGOS2&amp;si=X41EpvzS3mkZJK0V">Cherno's youtube channel </a>
+which is a goldmine if you want to learn graphics programming and c++. This was very helpful in setting up the project.</p>
+<ol>
+<li>
+<p><strong>Buffers</strong>: Buffers are memory storage locations used to hold data that can be processed by the GPU. Examples include Vertex Buffer Objects (VBOs) and Element Buffer Objects (EBOs). They are used to store vertex data, indices, and other attributes.</p>
+</li>
+<li>
+<p><strong>Shaders</strong>: Shaders are small programs that run on the GPU. They are used to control the rendering pipeline stages. The two most common shaders are the Vertex Shader, which processes each vertex, and the Fragment Shader, which processes each pixel.</p>
+</li>
+<li>
+<p><strong>Rendering</strong>: Rendering is the process of generating an image from a model. In OpenGL, rendering involves setting up the scene, binding the appropriate buffers, using shaders, and issuing draw calls to render the objects on the screen.</p>
+</li>
+</ol>
+
+</body>
 </html>
