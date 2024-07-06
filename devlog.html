@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sim3D Engine - Devlog</title>
     <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="scripts/renderMarkdown.js"></script>
   </head>
   <body>
     <header>
@@ -22,24 +24,19 @@
 
     <section id="devlog">
       <h2>Devlog</h2>
-      <div class="devlog-content">
-        <h3>Phase 1 Devlog</h3>
-        <p>
-          Welcome to the development log for Phase 1 of Sim3D. This devlog
-          chronicles our journey from initial setup to a functioning particle
-          system.
-        </p>
-        <h4>Step 1: OpenGL Setup and Initial Rendering</h4>
-        <p>
-          Setting up OpenGL environment and creating a basic rendering
-          pipeline...
-        </p>
-        <!-- More detailed logs can be added here -->
-      </div>
+      <div id="markdown-content"></div>
     </section>
 
     <footer>
       <p>&copy; 2024 Sim3D Project. All rights reserved.</p>
     </footer>
+
+    <script>
+      // Path to your Markdown file
+      const markdownPath = 'devlog/sim3d-phase1-devlog.md'; // Replace with the actual path to your Markdown file
+
+      // Call the renderMarkdown function
+      renderMarkdown(markdownPath, 'markdown-content');
+    </script>
   </body>
 </html>
