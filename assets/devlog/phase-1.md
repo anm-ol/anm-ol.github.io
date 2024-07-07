@@ -21,13 +21,14 @@ Sim3D is designed to simulate particles in a 3D environment, allowing for partic
 ### Step 1: Setting up the environment
 
 As this was my first ever time learning c++, I had to configure Visual Studio for OpenGl, as well as setting up the libraries that would neccessary
- - GLFW was important for window creation without being OS specific, the other option was to use the Win32 API (scary stuff!)
- - GLAD was imporant for loading OpenGL functions on any device
- - GLM for matrix/vector operations 
+
+- GLFW was important for window creation without being OS specific, the other option was to use the Win32 API (scary stuff!)
+- GLAD was imporant for loading OpenGL functions on any device
+- GLM for matrix/vector operations
 
 Deciding the application design was also important, since a well-planned design keeps everything organize, makes debugging a little less hellish and impementing new features along the way easier.
 
-![SystemDesign](image.png)
+![SystemDesign](assets/devlog/image.png)
 
 I learned how to write classes and headers in c++, later assigning everyone to work on different components.
 
@@ -40,7 +41,9 @@ The next phase focused on creating the core physics engine, including:
 - We resolve if there is a collision, keeping momentum constant.
 
 Key challenges:
+
 - Removing all reduntant computation from collision to make it efficient. Example: we avoid calculating the square root in distance calculation
+
 ```cpp
 bool isCollision(particle& p1, particle& p2)
 {
@@ -48,9 +51,11 @@ bool isCollision(particle& p1, particle& p2)
 		return false;
 	return dot(p1.pos - p2.pos, p1.pos - p2.pos) <= ((p1.size + p2.size) * (p1.size + p2.size));
 ```
+
 - Fixing linker errors due to circular linking, this helped me learn how c++ works.
 
 Code snippet (Engine update function):
+
 ```cpp
 void Engine::updateall() //this is the main function that gets called in infinite loop
 {
@@ -70,20 +75,22 @@ void Engine::updateall() //this is the main function that gets called in infinit
 Apparently you can't really render curves in OpenGL, everything needs to defined with vertices.
 To render particles as spheres, we implemented a sphere mesh generation algorithm:
 
-![spheremesh](SphereMesh.png)
+![spheremesh](assets/devlog/SphereMesh.png)
+
 - Generating sphere vertices and indices as triangles
 - Calculating normal data for proper lighting
 - Adding the generated mesh to Vertex buffers ([how buffers work in openGL](https://yaakuro.gitbook.io/opengl-4-5/chapter1))
 - Basic shaders to calculate diffuse lighting from a fixed point
 
 Key challenges:
-- Getting the buffers and normals to render
-![Some failed attempts](failedsphere.png)
 
-[Some failed attempts](fail.mp4)
+- Getting the buffers and normals to render
+  ![Some failed attempts](assets/devlog/failedsphere.png)
+
+[Some failed attempts](assets/devlog/fail.mp4)
 
 Finally working!
-![1](sphere.png)
+![1](assets/devlog/sphere.png)
 
 ### Step 4: Integrating Rendering and Physics
 
@@ -93,9 +100,9 @@ This step involved combining the rendering system with the physics engine:
 - Rendering a copy of the sphere mesh according to the transform matrix
 - Implementing a camera system for scene navigation
 
-[Check this video to see some bouncing balls!](demo!.mp4)
+[![Check this video to see some bouncing balls!](assets/devlog/demoimg.jpg)](assets/devlog/demo1.mp4)
 
-![alt text](<WhatsApp Image 2024-07-07 at 01.17.06_b5f27ce9.jpg>)
+![image](assets/devlog/balls.jpg)
 
 ### Step 5: Refinement and Bug Fixes
 
@@ -107,6 +114,7 @@ The final step of Phase 1 involved iterative refinement:
 - Enhancing visual quality with improved lighting and shading
 
 Key improvements:
+
 - Iteratively fixed collision bugs.
 - Used Substeps - A technique used to break down a single frame into multiple time steps, to improve simulation stability/accuracy, at the cost of performance.
 - Running around 10 substeps each frame, solved most of the collision issues.
@@ -116,6 +124,7 @@ Key improvements:
 Throughout Phase 1, several challenges were encountered and overcome:
 
 1. Shader compilation issues
+
    - Problem: Vertex and fragment shader linking error
    - Solution: Added utility functions inside shader class for logging and exception handling
 
@@ -123,14 +132,13 @@ Throughout Phase 1, several challenges were encountered and overcome:
    - Problem: Very unstable, particles teleporting through walls
    - Solution: Used sub-steps between each frame for stability
 
-
 ## Performance Considerations
 
 [Discuss any performance optimizations or considerations you made during Phase 1]
 
 ## Lessons Learned
 
-- Gained crucial experience with C++ and its standard libraries. 
+- Gained crucial experience with C++ and its standard libraries.
 - Learned how rendering engine design works, implemented various OOP concepts through abstractions
 - Managed a codebase through git, resolving conflicts, managing branches, commits and issues.
 
@@ -152,6 +160,7 @@ Make sure to checkout the [github repo](https://github.com/anm-ol/sim3d) if you 
 ## Appendix
 
 ### Project Structure
+
 ```
 sim3d/
 ├── shader/

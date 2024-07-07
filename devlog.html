@@ -3,9 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sim3D Engine - History</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Markdown-Tag/markdown-tag.js"></script>
+    <title>Sim3D: Phase 1 Devlog</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-vs.css"
+    />
+    <style>
+      /* Add any custom CSS styles here */
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 20px;
+      }
+      img {
+        max-width: 100%;
+      }
+      pre {
+        background-color: #f0f0f0;
+        padding: 10px;
+        overflow-x: auto;
+      }
+      code {
+        font-family: "Courier New", Courier, monospace;
+        font-size: 14px;
+        color: #333;
+      }
+    </style>
   </head>
   <body>
     <header>
@@ -20,21 +43,181 @@
         </ul>
       </nav>
     </header>
+    <h1>Sim3D: Phase 1 Devlog</h1>
 
-    <section id="devlog">
-      <md id="markdown-content"># Example </md>
-    </section>
+    <h2>Introduction</h2>
+    <p>
+      Welcome to the development log for Phase 1 of
+      <a href="https://github.com/anm-ol/sim3d">Sim3D</a>, a 3D particle
+      simulation engine built from scratch using C++ and OpenGL. This devlog
+      chronicles the journey from initial setup to a functioning particle system
+      with basic physics and rendering capabilities.
+    </p>
 
-    <footer>
-      <p>&copy; 2024 Sim3D Project. All rights reserved.</p>
-    </footer>
-    <script>
-      fetch("./assets/devlog/phase-1.md")
-        .then((response) => response.text())
-        .then((text) => {
-          document.getElementById("markdown-content").innerHTML = text
-          renderMarkdown()
-        })
-    </script>
+    <h2>Project Overview</h2>
+    <p>
+      Sim3D is designed to simulate particles in a 3D environment, allowing for
+      particle collision, movement, and interactive visualization. The project
+      aims to create a robust foundation for more complex simulations in later
+      phases.
+    </p>
+
+    <h2>Phase 1 Objectives</h2>
+    <ol>
+      <li>Setting up environment</li>
+      <li>Implement basic rendering capabilities</li>
+      <li>Create a physics engine for particle simulation</li>
+      <li>Develop collision detection and response systems</li>
+      <li>Integrate rendering with the physics simulation</li>
+    </ol>
+
+    <h2>Development Process</h2>
+
+    <h3>Step 1: Setting up the environment</h3>
+    <p>
+      Setting up Visual Studio for OpenGL and configuring necessary libraries
+      such as GLFW, GLAD, and GLM. Designing the application architecture for
+      better organization and easier feature implementation.
+    </p>
+    <img src="assets/devlog/image.png" alt="System Design" />
+
+    <h3>Step 2: Physics Engine Implementation</h3>
+    <p>
+      Creating the core physics engine, including particle handling, collision
+      detection, and resolution. Overcoming challenges like linker errors and
+      optimizing collision calculations.
+    </p>
+    <pre><code class="language-cpp">bool isCollision(particle&amp; p1, particle&amp; p2) {
+        if (&amp;p1 == &amp;p2)
+            return false;
+        return dot(p1.pos - p2.pos, p1.pos - p2.pos) &lt;= ((p1.size + p2.size) * (p1.size + p2.size));
+    }</code></pre>
+    <pre><code class="language-cpp">void Engine::updateall() //this is the main function that gets called in infinite loop
+    {
+        particles.push_back(particle(glm::vec3(1), 1.0f));
+        //call particle.update() for every element in array
+        for (int i = 0; i &lt; particles.size(); i++){
+            particles[i].update(tconst);
+            particles[i].velocity += globalAcc;
+        }
+        //call collision handling functions after updation
+        checkCollision(particles);
+    }</code></pre>
+
+    <h3>Step 3: Sphere Mesh Generation</h3>
+    <p>
+      Implementing sphere mesh generation for rendering particles as spheres,
+      including vertex and normal calculations, and overcoming rendering
+      challenges.
+    </p>
+    <img src="assets/devlog/SphereMesh.png" alt="Sphere Mesh Generation" />
+    <img src="assets/devlog/failedsphere.png" alt="Failed Sphere Rendering" />
+    <img src="assets/devlog/sphere.png" alt="Rendered Sphere" />
+
+    <h3>Step 4: Integrating Rendering and Physics</h3>
+    <p>
+      Combining rendering with the physics simulation, applying MVP matrices,
+      implementing basic shaders, and adding a camera system for scene
+      navigation.
+    </p>
+    <a href="assets/devlog/demo1.mp4"
+      ><img src="assets/devlog/demoimg.jpg" alt="Bouncing Balls Video"
+    /></a>
+
+    <h3>Step 5: Refinement and Bug Fixes</h3>
+    <p>
+      Iteratively refining the simulation, fixing collision issues, improving
+      visual quality, and adding user controls.
+    </p>
+
+    <h2>Challenges and Solutions</h2>
+    <ul>
+      <li>
+        Shader compilation issues: Handled by adding utility functions for error
+        handling.
+      </li>
+      <li>
+        Collision logic instability: Mitigated by implementing sub-steps for
+        better simulation stability.
+      </li>
+    </ul>
+
+    <h2>Performance Considerations</h2>
+    <p>
+      [Discuss any performance optimizations or considerations you made during
+      Phase 1]
+    </p>
+
+    <h2>Lessons Learned</h2>
+    <ul>
+      <li>Gained crucial experience with C++ and its standard libraries.</li>
+      <li>
+        Learned how rendering engine design works and implemented various OOP
+        concepts.
+      </li>
+      <li>
+        Managed a codebase through Git, resolving conflicts, managing branches,
+        commits, and issues.
+      </li>
+    </ul>
+
+    <h2>Future Improvements</h2>
+    <ol>
+      <li>Implement more advanced collision resolution techniques.</li>
+      <li>Explore memory management and optimization.</li>
+      <li>Add realistic lighting and explore GUI options.</li>
+      <li>Implement an editor for the engine.</li>
+    </ol>
+
+    <h2>Conclusion</h2>
+    <p>
+      Phase 1 of Sim3D has laid a solid foundation for our 3D particle
+      simulation engine. We've successfully implemented basic rendering, a
+      functional physics engine, and particle interactions.
+    </p>
+
+    <p>
+      Make sure to checkout the
+      <a href="https://github.com/anm-ol/sim3d">GitHub repo</a> if you want to
+      follow our progress or try Sim3D yourself.
+    </p>
+
+    <h2>Appendix</h2>
+
+    <h3>Project Structure</h3>
+    <pre>
+    sim3d/
+    ├── shader/
+    ├── src/
+    │   ├── include/
+    │   ├── lib/
+    │   ├── Engine.cpp
+    │   ├── Engine.h
+    │   ├── camera.h
+    │   ├── collision.cpp
+    │   ├── collision.h
+    │   ├── glad.c
+    │   ├── gui.cpp
+    │   ├── main.cpp
+    │   ├── particle.cpp
+    │   ├── particle.h
+    │   ├── renderer.cpp
+    │   ├── renderer.h
+    │   └── shader.h
+    </pre>
+
+    <h3>Additional Resources</h3>
+    <p>For more information on OpenGL and graphics programming, check out:</p>
+    <ul>
+      <li><a href="https://learnopengl.com">Learn OpenGL</a></li>
+      <li>
+        <a
+          href="https://youtube.com/playlist?list=PLlrATfBNZ98foTJPJ_Ev03o2oq3-GGOS2"
+          >Cherno's YouTube Channel</a
+        >
+      </li>
+    </ul>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
   </body>
 </html>
