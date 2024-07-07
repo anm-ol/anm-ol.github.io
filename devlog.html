@@ -21,30 +21,15 @@
       </nav>
     </header>
 
-    <section id="history">
-      <h2>History</h2>
-      <div class="timeline">
-        <h3>Project Timeline</h3>
-        <p>
-          Follow our journey from ideation to a fully-functional simulation
-          engine.
-        </p>
-        <ul>
-          <li><strong>Phase 1:</strong> Initial Setup and Basic Rendering</li>
-          <li><strong>Phase 2:</strong> Physics Engine Implementation</li>
-          <li><strong>Phase 3:</strong> Sphere Mesh Generation</li>
-          <li><strong>Phase 4:</strong> Integrating Rendering and Physics</li>
-          <li><strong>Phase 5:</strong> Refinement and Bug Fixes</li>
-        </ul>
-
-        <md id="markdown-content"># Example </md>
-      </div>
+    <section id="devlog">
+      <md id="markdown-content"># Example </md>
     </section>
+
     <footer>
       <p>&copy; 2024 Sim3D Project. All rights reserved.</p>
     </footer>
     <script>
-      fetch("./example.md")
+      fetch("./assets/devlog/phase-1.md")
         .then((response) => response.text())
         .then((text) => {
           document.getElementById("markdown-content").innerHTML = text
