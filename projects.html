@@ -14,7 +14,7 @@
                 <ul>
                     <li><a href="index.html">About</a></li>
                     <li><a href="projects.html">Projects</a></li>
-                    <li><a href="Anmol_Agarwal_resume_may_2025.pdf" target="_blank">CV</a></li>
+                    <li><a href="./assets/docs/Anmol_Agarwal_resume_may_2025.pdf" target="_blank">CV</a></li>
                 </ul>
             </nav>
         </div>
@@ -26,12 +26,31 @@
 
             <div class="project-card">
                 <div class="project-image-container">
+                     <img src="./assets/gifs/Relighting_grid.gif" alt="ChromaCraft Project Screenshot" class="project-image">
+                </div>
+                <div class="project-description">
+                    <h3>Dynamic 3D Relighting in Video Diffusion Models</h3>
+                    <p>
+                        This project introduces a novel technique to teach AI how to separate an object's 3D shape from its lighting in videos. Using specialized LoRA models, we disentangle pure geometry (LoRA-G) from diverse lighting effects (LoRA-L).
+                    </p>
+                    <p>
+                        The core feature is enabling precise, dynamic control over video lighting. Users can easily manipulate and animate light sources, such as moving a spotlight or changing the time of day, with temporally consistent results.
+                    </p>
+                    <p>
+                        It will be released as an open-source toolkit, including a "Lighting Palette" of pre-trained styles and tools for the community to train custom models for their own unique objects and lighting scenarios.
+                    </p>
+                    <a href="https://github.com/anm-ol/ChromaCraft" class="btn" target="_blank">GitHub</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image-container">
                     <img src="./assets/gifs/sim3d_demo.gif" alt="Sim3D Project Screenshot" class="project-image">
                 </div>
                 <div class="project-description">
-                    <h3>Sim3D - Realtime Cloth Simulation and Physics Engine [cite: 9]</h3>
+                    <h3>Sim3D - Realtime Cloth Simulation and Physics Engine</h3>
                     <p>
-                        A 3D physics simulation engine developed from scratch in C++ using OpenGL. [cite: 9, 10] It features a mass-spring system for textured cloth simulation [cite: 10], advanced lighting with Phong shading [cite: 11], and efficient batch rendering. [cite: 11] The engine includes a particle system with uniform grid-based collision detection [cite: 12] and an interactive scene editor built with ImGui. [cite: 13] Object-Oriented principles were applied to ensure a modular and extensible design. [cite: 14]
+                        A 3D physics simulation engine developed from scratch in C++ using OpenGL. It features a mass-spring system for textured cloth simulation, advanced lighting with Phong shading, and efficient batch rendering. The engine includes a particle system with uniform grid-based collision detection and an interactive scene editor built with ImGui. Object-Oriented principles were applied to ensure a modular and extensible design.
                     </p>
                     <a href="sim3d.html" class="btn">View Devlog</a>
                     <a href="https://github.com/anm-ol/sim3d" class="btn" target="_blank">GitHub</a>
@@ -48,18 +67,6 @@
                         This project is a smaller-scale implementation of a text-to-video generation model, inspired by OpenAI's Sora. I designed and experimented with various autoencoder architectures, focusing on minimizing quality loss through a combination of perceptual and reconstruction losses. I implemented the denoising process using a Diffusion Transformer (DiT) architecture and am currently working on incorporating spatio-temporal attention and text conditioning with CLIP embeddings.
                     </p>
                     <a href="https://github.com/anm-ol/DreamLab" class="btn" target="_blank">GitHub</a>
-                </div>
-            </div>
-            
-            <div class="project-card">
-                <div class="project-image-container">
-                     <img src="./assets/gifs/Relighting_grid.gif" alt="Image Captioning Project Screenshot" class="project-image">
-                </div>
-                <div class="project-description">
-                    <h3>Image Captioning using CNN + RNN on Flickr8k Dataset [cite: 15]</h3>
-                    <p>
-                        I built a pipeline to generate captions for images using a custom-built Convolutional Neural Network (CNN) and a Recurrent Neural Network (RNN). [cite: 15] The CNN, similar to the VGG-16 architecture, was optimized for feature extraction from images. [cite: 15] These features were then fed into a single-layer RNN to generate descriptive captions. [cite: 15] The entire model was trained from scratch on the Flickr8k dataset. [cite: 15]
-                    </p>
                 </div>
             </div>
 
