@@ -1,164 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sim3D Engine</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anmol Agarwal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
     <header>
-      <h1>Sim3D Engine</h1>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="setup.html">Setting up</a></li>
-          <li><a href="devlog.html">Devlog</a></li>
-          <li><a href="about.html">About</a></li>
-        </ul>
-      </nav>
+        <div class="container">
+            <h1 class="logo">Anmol Agarwal</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="Anmol_Agarwal_resume_may_2025.pdf" target="_blank">CV</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <section id="home">
-      <h2>Welcome to Sim3D</h2>
-      <p>
-        Welcome to Sim3D! This is the successor to Sim2D which was written in
-        Java and Processing. This engine is designed to simulate particles in a
-        3D environment using OpenGL and C++. It allows for particle collision
-        and movement, and includes a scene editor for setting up simulation
-        parameters.
-      </p>
-      <div class="components">
-        <h3>Key Features</h3>
-        <ul>
-          <li>Particle collision and movement</li>
-          <li>Scene editor for setting up simulation parameters</li>
-          <li>Advanced lighting methods (e.g., Phong)</li>
-          <li>GUI for the scene editor</li>
-        </ul>
-      </div>
-      <div class="technologies">
-        <h3>Technologies Used</h3>
-        <p>OpenGL, C++, Dear ImGui, ImGuizmo, GLM, GLAD, GLFW</p>
-      </div>
-      <div class="images">
-        <h3>Gallery</h3>
-        <img src="./assets/images/five.png" alt="Simulation Image 1" />
-        <img src="./assets/images/nine.png" alt="Simulation Image 2" />
-      </div>
-      <div class="videos">
-        <iframe
-          src="https://drive.google.com/file/d/1zwYm8nEn1BaJj2soT7pQ9SwiIS_v5_VT/preview"
-          allowfullscreen
-          frameborder="0"
-        >
-        </iframe>
-        <iframe
-          src="https://drive.google.com/file/d/1yKi6FMMDTg4NnnS4VWtyzugwYhyAAUM8/preview"
-          allowfullscreen
-          frameborder="0"
-        >
-        </iframe>
-      </div>
-      <div class="github">
-        <h3>Github</h3>
-        <p>
-          Check out the project repo:
-          <a target="_blank" href="https://github.com/anm-ol/sim3d">here</a>.
-        </p>
-      </div>
-      <div class="demos">
-        <h3>Demos</h3>
-        <p>
-          Check out more demos:
-          <a
-            target="_blank"
-            href="https://drive.google.com/drive/folders/1nFc3mQxkdXiyKRYAOJt7U238RMuw29qV?usp=drive_link"
-            >here</a
-          >
-        </p>
-      </div>
-      <div class="sources">
-        <h3>Sources</h3>
-        <p>Here are some of the resorces we've used for this project:</p>
-        <ol>
-          <li>
-            <a
-              href="https://www.youtube.com/watch?v=U0_ONQQ5ZNM"
-              target="_blank"
-              >The Math behind (most) 3D games - Perspective Projection</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://www.youtube.com/watch?v=W3gAzLwfIP0&list=PLlrATfBNZ98foTJPJ_Ev03o2oq3-GGOS2"
-              target="_blank"
-              >OpenGL tutorial by The Cherno</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://www.songho.ca/opengl/gl_sphere.html"
-              target="_blank"
-              >Sphere rendering in OpenGL</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://blog.conan.io/2019/06/26/An-introduction-to-the-Dear-ImGui-library.html"
-              target="_blank"
-              >Introduction to Dear ImGui Library</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://youtu.be/Th4huqR77rI?si=xCMZ7imCNxoaLdAp"
-              target="_blank"
-              >Batch rendering in OpenGL</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://youtu.be/NsjhUU8i4E8?si=-ILfUcglpuKnXvi7"
-              target="_blank"
-              >Simple cloth simulation in OpenGL</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://www.youtube.com/watch?v=4SW5vj9Ksc8&ab_channel=NoahKrim"
-              target="_blank"
-              >Cloth simulation</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://ics.uci.edu/~shz/courses/cs114/docs/proj3/index.html"
-              target="_blank"
-              >Cloth simulation using Mass spring systems</a
-            >
-          </li>
-        </ol>
-        <p>PDFs:</p>
-        <ol>
-          <li>
-            <a target="_blank" href="https://learnopengl.com/book/book_pdf.pdf"
-              >Learn OpenGL handbook</a
-            >
-          </li>
-          <li>
-            <a
-              target="_blank"
-              href="https://www.scss.tcd.ie/michael.manzke/CS7057/cs7057-1516-14-MassSpringSystems-mm.pdf"
-              >MASS-SPRING SYSTEMS & CLOTH</a
-            >
-          </li>
-        </ol>
-      </div>
+    <section id="about">
+        <div class="container">
+            <img src="./assets/creators/anmol.jpeg" alt="Anmol Agarwal" class="profile-pic">
+            <div class="about-text">
+                <h2>About Me</h2>
+                <p>
+                    [cite_start]I am a Bachelors of Science student in Electrical Engineering and Computer Science at the Indian Institute of Science, Education and Research, Bhopal, with a CGPA of 8.5[cite: 2]. I'm passionate about working with generative models and their applications in computer vision. [cite_start]My interests include Computer Vision, GenAI, Diffusion Models, Transformers, and Graphics Programming[cite: 17]. [cite_start]I am a quick learner and enjoy working in a team environment[cite: 17].
+                </p>
+                <div class="social-links">
+                    <a href="https://github.com/anm-ol" target="_blank">GitHub</a> |
+                    <a href="https://www.linkedin.com/in/anmol-agrawal-2a4892250/" target="_blank">LinkedIn</a> |
+                    <a href="mailto:anmolagrawal5704@gmail.com">Email</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <ul>
+                [cite_start]<li><strong>Languages:</strong> C++, C, Java, GLSL, Python, MATLAB [cite: 17]</li>
+                [cite_start]<li><strong>Developer Tools:</strong> Visual Studio, Git, Github, Linux [cite: 17]</li>
+                [cite_start]<li><strong>Libraries & APIs:</strong> Hugging Face Diffusers, PyTorch, OpenGL, DearImGUI, NumPy, Matplotlib [cite: 17]</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2>Experience</h2>
+            <div class="job">
+                [cite_start]<h3>Research Intern - Vision and AI Lab, Indian Institute of Science [cite: 3]</h3>
+                [cite_start]<p><em>December 2024 - Ongoing</em> [cite: 3]</p>
+                <ul>
+                    [cite_start]<li>Creating a dataset for Object Relighting using BlenderProc API[cite: 3].</li>
+                    [cite_start]<li>Conducted a literature survey of cutting-edge CVPR2025 papers on Video Diffusion models[cite: 4].</li>
+                    [cite_start]<li>Fine-tuned a 1.3B parameter video model on a custom dataset[cite: 5].</li>
+                    [cite_start]<li>Analyzed state-of-the-art video diffusion models like Hunyuan, Mochil, and CogVideoX[cite: 6, 7].</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects-summary">
+        <div class="container">
+            <h2>Personal Projects</h2>
+            <div class="project-summary">
+                <h3>DreamLab - Text2Video Generation</h3>
+                [cite_start]<p>A Latent Diffusion Transformer-based model inspired by OpenAI's Sora, built with PyTorch[cite: 8].</p>
+            </div>
+            <div class="project-summary">
+                <h3>Sim3D - Realtime Cloth Simulation</h3>
+                [cite_start]<p>A 3D physics engine built from scratch in C++ with OpenGL, featuring cloth simulation and a scene editor[cite: 9, 10, 13].</p>
+            </div>
+            <div class="project-summary">
+                <h3>Image Captioning with CNN + RNN</h3>
+                [cite_start]<p>Generated natural-sounding captions for images from the Flickr8k dataset using a custom CNN and RNN pipeline[cite: 15].</p>
+            </div>
+            <a href="projects.html" class="btn">View All Projects</a>
+        </div>
     </section>
 
     <footer>
-      <p>&copy; 2024 Sim3D Project. All rights reserved.</p>
+        <div class="container">
+            <p>&copy; 2024 Anmol Agarwal</p>
+        </div>
     </footer>
-  </body>
+</body>
 </html>

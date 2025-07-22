@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Anmol Agarwal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Anmol Agarwal</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="Anmol_Agarwal_resume_may_2025.pdf" target="_blank">CV</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="projects">
+        <div class="container">
+            <h2>My Projects</h2>
+
+            <div class="project-card">
+                <h3>Sim3D - Realtime Cloth Simulation and Physics Engine</h3>
+                <p>
+                    A 3D physics simulation engine developed from scratch in C++ using OpenGL. It features a mass-spring system for textured cloth simulation, advanced lighting with Phong shading, and efficient rendering techniques. The engine includes a particle system with uniform grid-based collision detection and an interactive scene editor built with ImGui. Object-Oriented principles were applied to ensure a modular and extensible design.
+                </p>
+                <a href="https://anm-ol.github.io/sim3d/" class="btn" target="_blank">View Project Site</a>
+                <a href="https://github.com/anm-ol/sim3d" class="btn" target="_blank">GitHub</a>
+            </div>
+
+            <div class="project-card">
+                <h3>DreamLab - Latent Diffusion Transformer for Text2Video Generation</h3>
+                <p>
+                    This project is a smaller-scale implementation of a text-to-video generation model, inspired by OpenAI's Sora. I designed and experimented with various autoencoder architectures, focusing on minimizing quality loss through a combination of perceptual and reconstruction losses. I implemented the denoising process using a Diffusion Transformer (DiT) architecture and am currently working on incorporating spatio-temporal attention and text conditioning with CLIP embeddings.
+                </p>
+                 <a href="https://github.com/anm-ol/DreamLab" class="btn" target="_blank">GitHub</a>
+            </div>
+
+            <div class="project-card">
+                <h3>Image Captioning using CNN + RNN on Flickr8k Dataset</h3>
+                <p>
+                    I built a pipeline to generate captions for images using a custom-built Convolutional Neural Network (CNN) and a Recurrent Neural Network (RNN). The CNN, similar to the VGG-16 architecture, was optimized for feature extraction from images. These features were then fed into a single-layer RNN to generate descriptive captions. The entire model was trained from scratch on the Flickr8k dataset.
+                </p>
+            </div>
+
+            <div class="project-card">
+                <h3>Deep Learning Model from Scratch in Java</h3>
+                <p>
+                    To deepen my understanding of fundamental deep learning concepts, I implemented a neural network from scratch in Java. This included forward propagation, backpropagation, and gradient descent. I trained this model on the MNIST handwritten digit dataset and achieved a test accuracy of up to 80%.
+                </p>
+                 <a href="https://github.com/anm-ol/deepjava" class="btn" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Anmol Agarwal</p>
+        </div>
+    </footer>
+</body>
+</html>
