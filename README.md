@@ -1,31 +1,34 @@
 # anm-ol.github.io
 
-Personal website of **Anmol Agarwal** — undergraduate in Electrical Engineering
-and Computer Science at IISER Bhopal. Interests: Computer Vision, GenAI,
-diffusion models, transformers, and graphics programming.
+Personal website of **Anmol Agarwal** — Member of Technical Staff (Pretraining) at
+Wayfarer Labs and an undergraduate in Electrical Engineering and Computer Science
+at IISER Bhopal. Interests: video world models, computer vision, generative AI,
+diffusion models, and graphics programming.
 
 Live site: https://anm-ol.github.io
 
 ## Built with
 
-This site is built with [Jekyll](https://jekyllrb.com/) on top of the
-[academic-website-template](https://github.com/sbryngelson/academic-website-template)
-by Spencer Bryngelson (MIT License — see `LICENSE`).
+This site uses the [**al-folio**](https://github.com/alshedivat/al-folio) Jekyll
+theme by Maruan Al-Shedivat and contributors (MIT License — see `LICENSE`).
 
-Content is config-driven:
+Content lives in:
 
-- `_config.yml` — identity, links, theme, and which pages appear in the nav.
-- `_pages/` — `home.md`, `about.md`, `software.md` (projects).
-- `_data/news.yml` — the news timeline shown on the home page.
-- `images/`, `papers/` — photo, project GIFs, resume, and internship report.
+- `_config.yml` — identity, theme options (dark mode on), navbar.
+- `_pages/` — `about.md` (home), `publications.md`, `projects.md`, `cv.md`, `news.md`.
+- `_bibliography/papers.bib` — publications (rendered by jekyll-scholar).
+- `_projects/` — project cards.
+- `_news/` — home-page announcements.
+- `_data/socials.yml` — social links.
+- `assets/img/`, `assets/pdf/` — photo, project media, CV.
 
 The `sim3d/` folder is a preserved copy of the original static "Sim3D Engine"
-mini-site (devlog, setup, about). It is served as-is at
-`/sim3d/sim3d.html` and linked from the projects page.
+mini-site (devlog, setup, about), served as-is at `/sim3d/sim3d.html` and linked
+from the Sim3D project card.
 
 ## Local development
 
-Requires Ruby 3.x+ (this repo was built with Ruby 4.0 via Homebrew).
+Requires Ruby 3.x+ and ImageMagick (and Node for JS minification in production).
 
 ```sh
 bundle install
@@ -35,7 +38,6 @@ bundle exec jekyll serve
 
 ## Deployment
 
-Pushing to the `main` branch triggers the GitHub Actions workflow in
-`.github/workflows/deploy.yml`, which builds the site and deploys it to
-GitHub Pages. In the repo Settings → Pages, set **Source** to
-**GitHub Actions**.
+Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds the site
+with `JEKYLL_ENV=production` and deploys it to GitHub Pages via GitHub Actions
+(Settings → Pages → Source → GitHub Actions).
