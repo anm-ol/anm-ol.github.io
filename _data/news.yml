@@ -1,0 +1,11 @@
+# News items shown on the home page sidebar.
+# The 3 most recent are shown; all appear on /allnews.
+# Each entry needs: date, headline
+- date: December 2024
+  headline: "Started as a Research Intern at the Vision and AI Lab, Indian Institute of Science (IISc)"
+
+- date: 2024
+  headline: "Building ChromaCraft — dynamic 3D relighting for video diffusion models"
+
+- date: 2024
+  headline: "Released Sim3D, a realtime cloth simulation and physics engine built from scratch in C++/OpenGL"
