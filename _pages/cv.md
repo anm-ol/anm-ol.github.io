@@ -20,7 +20,7 @@ toc:
 
 ## Experience
 
-**Member of Technical Staff, Pretraining Team** — Overworld
+**Member of Technical Staff, Pretraining Team** — [Overworld](https://over.world/)
 *October 2025 – Present*
 - Training foundational interactive video models.
 - Scaling up and optimizing data and inference pipelines for custom and pre-trained open-source video diffusion models.

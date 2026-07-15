@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Joined **Overworld** as a Member of Technical Staff on the Pretraining Team, working on interactive video models.
+Joined [**Overworld**](https://over.world/) as a Member of Technical Staff on the Pretraining Team, working on interactive video models.
