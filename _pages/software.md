@@ -32,5 +32,5 @@ permalink: /software/
 <div class="pub-actions" style="margin-bottom: var(--space-3);">
 <a href="https://github.com/anm-ol/DreamLab" target="_blank" class="btn-pill btn-git">GitHub</a>
 </div>
-<p>A smaller-scale text-to-video model inspired by OpenAI's Sora. I designed and experimented with autoencoder architectures to minimize quality loss via a combination of perceptual and reconstruction losses, and implemented the denoising process with a Diffusion Transformer (DiT) architecture. In progress: spatio-temporal attention and CLIP-based text conditioning.</p>
+<p>A smaller-scale text-to-video model inspired by OpenAI's Sora. I experimented with multiple autoencoder architectures, training one that combines perceptual and reconstruction losses to minimize quality loss, drawing on DDPM, LDM, VAE/VQ-VAE, Vision Transformer, and Diffusion Transformer (DiT) research. I implemented DiT-based denoising for images without text conditioning, and am now building a DiT model with spatio-temporal attention and CLIP-based text conditioning, trained on a custom Minecraft gameplay dataset as a proof of concept.</p>
 </div>

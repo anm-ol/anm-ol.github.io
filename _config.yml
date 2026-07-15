@@ -4,7 +4,7 @@
 name: "Anmol Agarwal"
 title: "Undergraduate, Electrical Engineering and Computer Science"
 institution: "Indian Institute of Science Education and Research (IISER) Bhopal"
-email: "anmolagrawal5704@gmail.com"
+email: "anmol@over.world"
 photo: anmol.jpeg  # place your photo in images/
 
 # ============================================================
@@ -37,8 +37,8 @@ analytics:
 # ============================================================
 nav_pages:
   - name: about
+  - name: publications
   - name: software
-  # - name: publications   # no publications yet
   # - name: talks
   # - name: research
   # - name: team
