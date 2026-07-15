@@ -1,7 +1,7 @@
 # anm-ol.github.io
 
 Personal website of **Anmol Agarwal** — Member of Technical Staff (Pretraining) at
-Wayfarer Labs and an undergraduate in Electrical Engineering and Computer Science
+Overworld and an undergraduate in Electrical Engineering and Computer Science
 at IISER Bhopal. Interests: video world models, computer vision, generative AI,
 diffusion models, and graphics programming.
 
